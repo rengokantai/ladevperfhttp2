@@ -23,3 +23,32 @@ cache css and js that is unlikely to change
 ####4 How to measure performance
 multi test:
 pingdom, gtmetrix
+
+###3. Optimizing Images
+####2 Image format options
+GIF:never  
+jpeg: photos  
+png: static computer-generated graphics  
+svg: computer-generated graphics
+
+####3 Manual image optimization
+1 blur unnessary areas  
+2 size image to match largest possible display  
+The number one rule of .JPEG compression is the more details the image contains, the larger the file gets.  
+In other words, an image with a low depth of field, or high bokeh, will produce a smaller file size. 
+
+####5 Sidebar, gulp postcss precss and autoprefixer
+```
+gulp.task('css',function(){
+  gulp.src(source+'**/*.css').pipe(postcss([
+    precss(),autoprefixer()])).pipe(gulp.dest(dest));
+});
+
+//gulp-serserver
+gulp.task('webserver',function(){
+  gulp.src(dest).pipe(webserver({
+    livereload:true,
+    open:true
+  }))
+})
+```
