@@ -60,3 +60,24 @@ gulp.task('imageopt',function(){
 })
 ```
 
+###4. Markup and Content
+####1 Code optimization in an HTTP/2
+code optimization landmarks:
+- minify everything
+- Concatenation of CSS/JS is anti-pattern
+- critical loading matters, defer/async when you can
+
+
+####2 Automated minification of HTML, CSS, and JavaScript
+gulp-minify cssnano gulp-htmlmin (github:html-minifier)
+```
+gulp.task('html',()=>{
+  gulp.src(source+'*.html').pipe(htmlmin({
+    collapseWhiteSpace:true,
+    minifyJS:true,
+    removeComments: true
+  })
+})
+```
+```
+var  =require('gulp-htmlmin')
