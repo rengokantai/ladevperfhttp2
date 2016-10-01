@@ -71,6 +71,9 @@ code optimization landmarks:
 ####2 Automated minification of HTML, CSS, and JavaScript
 gulp-minify cssnano gulp-htmlmin (github:html-minifier)
 ```
+var htmlmin  =require('gulp-htmlmin'),
+minify = require('gulp-minify');
+cssnano = require('css-nano')
 gulp.task('html',()=>{
   gulp.src(source+'*.html').pipe(htmlmin({
     collapseWhiteSpace:true,
@@ -78,6 +81,22 @@ gulp.task('html',()=>{
     removeComments: true
   })
 })
+
+gulp.task('js',()=>{
+  gulp.src(source+'*.js').pipe(minify()
+  ).pipe(gulp.dest(dest+'js'));
+})
+
+gulp.task('css',function(){
+  gulp.src(source+'**/*.css').pipe(postcss([
+    precss(),autoprefixer(),cssnano()])).pipe(gulp.dest(dest));
+});
 ```
-```
-var  =require('gulp-htmlmin')
+
+####3 Modularize CSS for HTTP/2
+1:40
+in style-main.css, remove all modules except variable module.  
+in module folder, remove all  _ in filenames,  
+then add all css files in main page
+
+####4 Deferring noncritical CSS
