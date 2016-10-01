@@ -128,3 +128,11 @@ The defer attribute kinda solves some of this, and it does it by completely defe
 
 ###5. Optimizing Delivery
 [h5bp config](http://github.com/h5bp/server-configs)
+
+####4 Cache busting: Clearing long-term cached files
+There's a really clever solution to this and it's called cache busting. We literally force the browser to download new files and we can do this in a really smart way by simply renaming the files any time we change them.  
+
+
+gulp plugin: gulp-rev, gulp-rev-replace  
+rev-del: delete replaced files from an old manifest  
+04:30 (tbc)
