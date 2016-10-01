@@ -52,3 +52,11 @@ gulp.task('webserver',function(){
   }))
 })
 ```
+####6 Automated image optimiza
+```
+var image = require('gulp-image');
+gulp.task('imageopt',function(){
+  gulp.src(source+'img/**/*.{jpg,JPG,png}').pipe(image()).pipe(gulp.dest(dest)+'images'));
+})
+```
+
