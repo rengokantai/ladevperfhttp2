@@ -100,3 +100,20 @@ in module folder, remove all  _ in filenames,
 then add all css files in main page
 
 ####4 Deferring noncritical CSS
+```
+<noscript id="defer">
+<link rel="css/lateload.css" media=all">
+</noscript>
+<script>
+var loadDefer = function(){
+  var addStyle = document.getElementById("defer");
+  var replacement = document.createElement("div");
+  replacement.innerHTML = addStyle.textContent;
+  document.body.appendChild(replacement);
+  addStyle.parentNode.removeChild(addStyle); //remove the noscript chunk
+};
+var rem = requestAnimationFrame;
+if(rem){rem(function(){window.setTimeout(loadDefer,0);});
+else wondow.addEventListener('load',loadDefer);
+</script>
+```
