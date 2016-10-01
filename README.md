@@ -117,3 +117,14 @@ if(rem){rem(function(){window.setTimeout(loadDefer,0);});
 else wondow.addEventListener('load',loadDefer);
 </script>
 ```
+
+####5 JavaScript loading: Async and defer
+ When the browser parses the page, it starts with the HTML and starts parsing it until it encounters the call for the JavaScript. Then it stops parsing the HTML while it downloads and then executes the JavaScript. Only after both the download and execution are complete does it continue parsing the HTML. And here you see why we usually place our JavaScripts at the bottom of the page, so we're not blocking the HTML parsing until the JavaScript kicks in.  
+ 
+But we can change this behavior. If we append the async attribute to our script call, the way the browser parses the content changes. Now the browser will continue to parse the HTML while the JavaScript is downloading, and the only time the parsing stops is when the JavaScript is executed.  
+
+The defer attribute kinda solves some of this, and it does it by completely deferring the execution of a JavaScript until everything else has happened. The other thing to know about defer is, when you use defer, the execution of the JavaScript will happen in the order the deferred elements are listed on the page.
+
+
+###5. Optimizing Delivery
+[h5bp config](http://github.com/h5bp/server-configs)
