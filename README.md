@@ -135,4 +135,28 @@ There's a really clever solution to this and it's called cache busting. We liter
 
 gulp plugin: gulp-rev, gulp-rev-replace  
 rev-del: delete replaced files from an old manifest  
-04:30 (tbc)
+04:30
+```
+rev = require('gulp-rev')
+revReplace = require('gulp-rev-replace')
+revDel = require('rev-del')
+
+//change dest to limbo, then process by rev,revDel
+
+gulp.task('revision'.['html','css','js'],function(){
+  return gulp.src(limbo +'**/*.{js.css}').
+  pipe(rev())
+  .pipe(gulp.dest(dest))
+  .pipe(rev.manifest())
+  .pipe(revDel({dest:dest}))
+  .pipe(gulp.dest(dest))
+})
+
+
+gulp.task('revreplace',['revision'],function(){
+  var manifest = gulp.src(dest+'rev-manifest.json');
+  return gulp.src(limbo+'**/*.html')
+  .pipe(revReplace({manifest:manifest})
+  .pipe(gulp.dest(dest));
+})
+```
